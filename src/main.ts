@@ -3,6 +3,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app.module';
+import { CustomExceptionFilter } from '@modules/shared/exceptions/custom-exception.filter';
 import { envs } from '@config/adapters/envs.adapter';
 
 async function bootstrap() {
@@ -22,6 +23,8 @@ async function bootstrap() {
       transformOptions: { enableImplicitConversion: true },
     }),
   );
+
+  app.useGlobalFilters(new CustomExceptionFilter());
 
   await app.listen(envs.PORT);
   logger.log(`Server running on port ${envs.PORT}`);
