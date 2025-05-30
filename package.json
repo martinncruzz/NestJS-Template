@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/martinncruzz/NestJS-Template"
+    "url": "https://github.com/martinncruzz/nestjs-template"
   },
   "scripts": {
     "build": "nest build",
